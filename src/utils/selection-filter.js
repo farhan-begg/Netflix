@@ -1,4 +1,5 @@
 export default function selectionFilter({ series, films } = []) {
+    // returns new objects with series and films for titles and matches genre with genre title
     return {
         series: [
             { title: 'Documentaries', data: series?.filter((item) => item.genre === 'documentaries') },

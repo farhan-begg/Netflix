@@ -13,10 +13,11 @@ export function BrowseContainer({ slides }) {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [slideRows, setSlideRows] = useState([]);
-
+    // allows us to grab user for authentication
     const { firebase } = useContext(FirebaseContext);
     const user = firebase.auth().currentUser || {};
 
+    // loads profile      
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
@@ -38,14 +39,18 @@ export function BrowseContainer({ slides }) {
         }
     }, [searchTerm]);
 
+    // while iser is active create a loading spinner
     return profile.displayName ? (
         <>
+            {/* first load image and then release the body to return normal background */}
             {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
-
+            {/*  */}
             <Header src="joker1" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
+                        {/*  Displaus Logo and routes home */}
                         <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
+                        {/* Displays Series and Films and Filters  */}
                         <Header.TextLink active={category === 'series' ? 'true' : 'false'} onClick={() => setCategory('series')}>
                             Series
             </Header.TextLink>
@@ -69,7 +74,7 @@ export function BrowseContainer({ slides }) {
                         </Header.Profile>
                     </Header.Group>
                 </Header.Frame>
-
+                {/* Background image with text */}
                 <Header.Feature>
                     <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
                     <Header.Text>

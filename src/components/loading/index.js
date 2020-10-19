@@ -2,6 +2,7 @@ import React from 'react';
 import { LockBody, ReleaseBody, Spinner, Picture } from './styles/loading';
 
 export default function Loading({ src, ...restProps }) {
+    // locks body and display spinner logo
     return (
         <Spinner {...restProps}>
             <LockBody />
@@ -10,6 +11,7 @@ export default function Loading({ src, ...restProps }) {
     );
 }
 
+// releases the body puts background to normal
 Loading.ReleaseBody = function LoadingReleaseBody() {
     return <ReleaseBody />;
 };

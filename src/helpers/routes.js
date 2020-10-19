@@ -19,6 +19,7 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
                             }}
                         />
                     );
+
                 }
 
                 return null;

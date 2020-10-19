@@ -7,10 +7,13 @@ export default function useContent(target) {
 
     useEffect(() => {
         firebase
+            // access fire store and collections either films or series
             .firestore()
             .collection(target)
+            // grabs collection
             .get()
             .then((snapshot) => {
+                // grabs all data and doc id
                 const allContent = snapshot.docs.map((contentObj) => ({
                     ...contentObj.data(),
                     docId: contentObj.id,
@@ -22,6 +25,6 @@ export default function useContent(target) {
                 console.log(error.message);
             });
     }, []);
-
+    // returns new object with the target
     return { [target]: content };
 }
