@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+live Link [https://netflix-df45a.web.app/]
 
 ## Available Scripts
 
